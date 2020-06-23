@@ -11,7 +11,7 @@ router.get('/users', (req, res) => {
     });
 });  
 
-//GET a api/user/id (un solo usuarios)
+//GET a api/user/id (un solo usuarios)  
 router.get('/user/:id', (req, res) => {
     User.findOne ({ id: req.params.id }, (err, user) => {
         if (err) throw err;
