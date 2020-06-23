@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const User = require('./models/User');
 
-const db = 'mongodb://localhost/hellodb';
-
+const db = 'mongodb+srv://hellodb:hellodb11@cluster0-rfpxm.mongodb.net/hellodb?retryWrites=true&w=majority'
+//const db = 'mongodb://localhost/helldb';
+  
 const users = [
     {
         id: 1,
@@ -35,8 +36,8 @@ mongoose.set('useFindAndModify', false);
 mongoose
   .connect (db, { useNewUrlParser: true})
   .then (() => {
-      console.log('DB connected @ $ {db} ');
-      console.log('Populating DB. . .');
+      console.log( 'DB connected @ ${db}' );
+      console.log( 'Populating DB...' );
       User.insertMany(users, (err, users) =>{
           if (err) throw err;
 
@@ -45,4 +46,4 @@ mongoose
           mongoose.connection.close();
       } );
   })
-.catch(err => console.error('Connection error ${err} '));
+.catch(err => console.error( 'Connection error ${err}' ) );  
