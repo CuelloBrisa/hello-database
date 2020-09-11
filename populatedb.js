@@ -36,14 +36,14 @@ mongoose.set('useFindAndModify', false);
 mongoose
   .connect (db, { useNewUrlParser: true})
   .then (() => {
-      console.log( 'DB connected @ ${db}' );
+      console.log( `DB connected @ ${db}` );
       console.log( 'Populating DB...' );
       User.insertMany(users, (err, users) =>{
           if (err) throw err;
 
-          console.log('$ {users.length} documents inserted! ');
+          console.log(`$ {users.length} documents inserted! `);
 
           mongoose.connection.close();
       } );
   })
-.catch(err => console.error( 'Connection error ${err}' ) );  
+.catch(err => console.error( `Connection error ${err}` ) );  
