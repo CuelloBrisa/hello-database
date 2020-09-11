@@ -17,12 +17,12 @@ mongoose.set('useFindAndModify', false);
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => {
-    console.log('DB connected @ ${db}');
+    console.log(`DB connected @ ${db}`);
   })
-.catch(err => console.error('Connection error ${err}'));
+.catch(err => console.error(`Connection error ${err}`));
 
 app.use('/api', router);
 
 app.listen(port, () => {
-    console.log('Server listening on port ${port}');
+    console.log(`Server listening on port ${port}`);
 });
